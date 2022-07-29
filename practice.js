@@ -32,3 +32,17 @@ function testEven(n){
   return name === owner ? "Hello boss" : "Hello guest"
   }
     ////////////////////////////////////////////////////////
+//Abbreviate a Two Word Name (Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.)
+    function abbrevName(name){
+
+        // code away
+      return name.toUpperCase().split(' ')
+        .map(word => word[0])
+        .join('.');
+    
+    }
+// other solutions
+    function abbrevName(name){
+        return name[0].toUpperCase() + "." + name[name.indexOf(" ")+1].toUpperCase();
+    }
+      ////////////////////////////////////////////////////////
