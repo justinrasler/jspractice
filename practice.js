@@ -4,6 +4,19 @@ function smash (words) {
     return words.join(" ")
  };
    ////////////////////////////////////////////////////////
+// Grasshopper - Messi goals function 
+/*(Messi is a soccer player with goals in three leagues:
+
+LaLiga
+Copa del Rey
+Champions
+Complete the function to return his total number of goals in all three leagues.)*/
+
+ function goals (laLigaGoals, copaDelReyGoals, championsLeagueGoals) {
+    // code goes here
+    return laLigaGoals + copaDelReyGoals + championsLeagueGoals
+  }
+   ////////////////////////////////////////////////////////
      ////////////////////////////////////////////////////////
 //7 kyu problems
   ////////////////////////////////////////////////////////
@@ -53,3 +66,30 @@ function testEven(n){
           return length * width * height
         }
       }
+      ////////////////////////////////////////////////////////
+// Growth of a population
+      //Recursive function: exit condition p0 >= p
+function nbYear(p0, percent, aug, p) {
+    p0 =  Math.floor(p0*(1+percent/100)+aug)
+    if (p0>=p)
+       return 1
+    return nbYear(p0,percent,aug,p)+1
+  }
+  ////////////////////////////////////////////////////////
+//Is this a triangle?
+  function isTriangle(a,b,c)
+{
+  if(a + b > c && b + c > a && c + a > b){
+    return true
+  } else {
+    return false
+  }
+   
+}
+//other answer
+function isTriangle(a,b,c)
+{
+   return a + b > c && a + c > b && c + b > a;
+}
+
+  ////////////////////////////////////////////////////////
