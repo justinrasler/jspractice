@@ -15,8 +15,10 @@ print(my_variable)
 #while loop
 counter = 0
 while (counter < 10):
-    print(counter)
     counter += 1
+    if (counter % 2) == 0: print ("even")
+    else: print ("odd")
+
     
 
     #for loop
