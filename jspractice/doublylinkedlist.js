@@ -5,10 +5,10 @@ class DoublyLinkedList {
     this.head = null;
     this.tail = null;
   }
-  
+
   addToHead(data) {
     const newHead = new Node(data);
-    const currentHead = this.head;
+    const currentHead = this.head; 
     if (currentHead) {
       currentHead.setPreviousNode(newHead);
       newHead.setNextNode(currentHead);
@@ -18,7 +18,7 @@ class DoublyLinkedList {
       this.tail = newHead;
     }
   }
-  
+
   addToTail(data) {
     const newTail = new Node(data);
     const currentTail = this.tail;
@@ -31,7 +31,7 @@ class DoublyLinkedList {
       this.head = newTail;
     }
   }
-  
+
   removeHead() {
     const removedHead = this.head;
     if (!removedHead) {
@@ -46,7 +46,7 @@ class DoublyLinkedList {
     }
     return removedHead.data;
   }
-  
+
   removeTail() {
     const removedTail = this.tail;
     if (!removedTail) {
@@ -61,10 +61,33 @@ class DoublyLinkedList {
     }
     return removedTail.data;
   }
-  
-  // Create your .removeByData() method below:
-  
-  
+
+  removeByData(data) {
+    let nodeToRemove;
+    let currentNode = this.head;
+    while (currentNode !== null) {
+      if (currentNode.data === data) {
+        nodeToRemove = currentNode;
+        break;
+      }
+      currentNode = currentNode.getNextNode();
+    }
+    if (!nodeToRemove) {
+      return null;
+    }
+    if (nodeToRemove === this.head) {
+      this.removeHead();
+    } else if (nodeToRemove === this.tail) {
+      this.removeTail();
+    } else {
+      const nextNode = nodeToRemove.getNextNode();
+      const previousNode = nodeToRemove.getPreviousNode();
+      nextNode.setPreviousNode(previousNode);
+      previousNode.setNextNode(nextNode);
+    }
+    return nodeToRemove;
+  }
+
   printList() {
     let currentNode = this.head;
     let output = '<head> ';
@@ -76,5 +99,7 @@ class DoublyLinkedList {
     console.log(output);
   }
 }
+const subway = new DoublyLinkedList()
+
 
 module.exports = DoublyLinkedList;
